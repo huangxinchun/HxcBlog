@@ -2,9 +2,10 @@
 message=$1
 book="php.md"
 book_bak="2020-04-12-my-$book.md"
+hxc_path="../../../hxc.github.io/_posts"
 #更新自己的分支
 echo "更新开始！"
-cp $book ../../../hxc.github.io/_posts/$book
+cp $book $hxc_path/$book
 git add ./
 git commit -m "$message"
 git push 
@@ -12,7 +13,7 @@ git push
 echo "更新完成！"
 echo "更新博客开始！"
 
-cd ../hxc.github.io/_posts/
+cd $hxc_path
 cp $book $book_bak
 
 #添加固定的头
