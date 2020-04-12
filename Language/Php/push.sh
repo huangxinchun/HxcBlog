@@ -1,11 +1,11 @@
 #!/bin/bash
 message=$1
 book="php.md"
-book_bak="2020-04-12-my-$book.md"
+book_bak="2020-04-13-my-$book.md"
 hxc_path="../../../hxc.github.io/_posts"
 #更新自己的分支
 echo "更新开始！"
-cp $book $hxc_path/$book
+cp $book $hxc_path/$book_bak
 git add ./
 git commit -m "$message"
 git push 
