@@ -1,11 +1,16 @@
 #!/bin/bash
 message=$1
-book="php.md"
-book_bak="2020-04-13-my-$book"
+#当前md名称
+now_book="php.md"
+#cp的文件名称
+book="2020-04-13-my-$now_book"
+#中间bak文件名
+book_bak="2020-04-13-my-bak-$now_book"
+
 hxc_path="../../../hxc.github.io/_posts"
 #更新自己的分支
 echo "更新开始！"
-cp $book $hxc_path/$book_bak
+cp $now_book $hxc_path/$book
 git add ./
 git commit -m "$message"
 git push 
