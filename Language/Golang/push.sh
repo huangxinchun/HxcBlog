@@ -1,11 +1,16 @@
 #!/bin/bash
 message=$1
-book="php.md"
-book_bak="2020-04-12-my-$book.md"
+#当前md名称
+now_book="golang.md"
+#cp的文件名称
+book="2020-04-13-my-$now_book"
+#中间bak文件名
+book_bak="2020-04-13-my-bak-$now_book"
+
 hxc_path="../../../hxc.github.io/_posts"
 #更新自己的分支
 echo "更新开始！"
-cp $book $hxc_path/$book
+cp $now_book $hxc_path/$book
 git add ./
 git commit -m "$message"
 git push 
@@ -19,14 +24,14 @@ cp $book $book_bak
 #添加固定的头
 echo "---
 layout:     post                    # 使用的布局（不需要改）
-title:      PHP总结              # 标题 
+title:      Golang总结              # 标题 
 subtitle:   坚持坚持再坚持      #副标题
 date:       2020-04-13              # 时间
 author:     hxc                      # 作者
 header-img:    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - PHP
+    - Golang
 ---" > $book 
 #写入内容
 cat $book_bak >> $book
