@@ -2,15 +2,24 @@
 message=$1
 #当前md名称
 now_book="mysql.md"
+#图片地址
+images_path="imagesMysql"
 #cp的文件名称
 book="2020-04-13-my-$now_book"
 #中间bak文件名
 book_bak="2020-04-13-my-bak-$now_book"
 
-hxc_path="../../../hxc.github.io/_posts"
+hxc_path="../../../huangxinchun.github.io/_posts"
+
 #更新自己的分支
 echo "更新开始！"
+
+#cp md
 cp $now_book $hxc_path/$book
+
+#cp 图片文件
+cp -R $images_path $hxc_path
+
 git add ./
 git commit -m "$message"
 git push 
