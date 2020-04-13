@@ -8,8 +8,6 @@ fi
 
 #当前md名称
 now_book="mysql.md"
-#图片地址
-images_path="imagesMysql"
 
 #cp的文件名称
 book="2020-04-13-my-$now_book"
@@ -18,8 +16,6 @@ book_bak="2020-04-13-my-bak-$now_book"
 
 #博客
 hxc_path="../../../huangxinchun.github.io/_posts"
-#博客图片地址
-images_bolg_path="$hxc_path/../$images_path/"
 
 #更新自己的分支
 echo "更新开始！"
@@ -27,14 +23,12 @@ echo "更新开始！"
 #cp md
 cp $now_book $hxc_path/$book
 
-#cp 图片文件
-cp -R $images_path $images_bolg_path
-
 git add ./
 git commit -m "$message"
 git push 
 
 echo "更新完成！"
+
 echo "更新博客开始！"
 
 cd $hxc_path
@@ -58,7 +52,6 @@ cat $book_bak >> $book
 rm -f $book_bak
 
 #回退一层
-cd ../
 git add ./
 git commit -m "$message"
 git push origin master
