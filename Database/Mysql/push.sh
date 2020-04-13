@@ -19,7 +19,7 @@ book_bak="2020-04-13-my-bak-$now_book"
 #博客
 hxc_path="../../../huangxinchun.github.io/_posts"
 #博客图片地址
-images_bolg_path="$hxc_path/../assets/$images_path/"
+images_bolg_path="$hxc_path/../$images_path/"
 
 #更新自己的分支
 echo "更新开始！"
