@@ -33,11 +33,170 @@
 
 - 对象适配器
 
+![图片](/images/imagesDesignPatterns/07_adapter_01.png)
 
+从用户的角度看不到被**适配者**。
+
+用户调用适配器转换出来的目标接口方法。适配器再调用被适配者的相关接口方法。
+
+用户收到反馈结果，感觉只是和目标接口交互。
+
+- 类适配器
+
+![图片](/images/imagesDesignPatterns/07_adapter_07.png)
+
+通过多重继承目标接口和被适配者类方式来实现适配。
 
 #### 2.2.3 案例
 
-适配器可以分为两种: 对象适配器和类适配器。
+> 案例: 将火鸡冒充成鸭子
+##### 2.2.3.1 对象适配器模式
+
+逻辑图:
+
+![图片](/images/imagesDesignPatterns/07_adapter_03.png)
+
+代码组织结构图:
+
+![图片](/images/imagesDesignPatterns/07_adapter_02.png)
+
+被适配者火鸡Turkey:
+
+```
+public interface Turkey {
+    void gobble(); // 火鸡叫声
+    void fly();
+}
+```
+
+```
+/** 野火鸡 */
+public class WildTurkey implements Turkey{
+    @Override
+    public void gobble() {
+        System.out.println("Go Go!");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("I am Flying a short distance!");
+    }
+}
+```
+
+目标对象Duck:
+
+```
+/** 鸭子的接口 */
+public interface Duck {
+    void quack();//鸭子叫声
+    void fly();
+}
+```
+
+适配器TurkeyAdapter:
+
+```
+/**
+ * 在外面表现是 鸭子(目标)，但是实质是火鸡(被适配者)
+ */
+public class TurkeyAdapter implements Duck { //实现目标的接口
+
+    private Turkey turkey; //这种对象型适配器必须要组合  被适配者，也就是要有适配者的引用
+
+    public TurkeyAdapter(Turkey turkey) {
+        this.turkey = turkey;
+    }
+
+    // 实际是火鸡在叫
+    @Override
+    public void quack() {
+        turkey.gobble();//外面表现是quack,但是内部是turkey.gobble()
+    }
+
+    @Override
+    public void fly() {
+        //由于火鸡飞的短，所以多飞几次，让火鸡更像鸭子
+        for(int i = 0; i < 6; i++){
+            turkey.fly();
+        }
+    }
+}
+```
+
+测试:
+
+```
+public class MyTest {
+
+    public static void main(String[] args) {
+        WildTurkey turkey = new WildTurkey();
+        Duck duck = new TurkeyAdapter(turkey);
+        duck.quack(); //看似是鸭子，其实内置是火鸡
+        duck.fly();
+    }
+}
+```
+
+输出:
+```
+Go Go!
+I am Flying a short distance!
+I am Flying a short distance!
+I am Flying a short distance!
+I am Flying a short distance!
+I am Flying a short distance!
+I am Flying a short distance!
+```
+
+##### 2.2.3.2 类适配器模式
+
+基本结构图:
+
+![图片](/images/imagesDesignPatterns/07_adapter_04.png)
+
+虽然Java不支持多继承，但是可以实现的同时继承。
+
+只有TurkeyAdapter有一些代码变动，其他不变:
+
+```
+/**
+ * 和 对象适配器模式唯一的不同就是  : 适配器直接继承 被适配者 (而不是组合)
+ */
+public class TurkeyAdapter extends WildTurkey implements  Duck {
+
+    @Override
+    public void quack() {
+        super.gobble(); //直接继承 被适配者
+    }
+
+    @Override
+    public void fly() {
+        //让火鸡飞6次，飞的像鸭子
+        super.fly();
+        super.fly();
+        super.fly();
+        super.fly();
+        super.fly();
+        super.fly();
+    }
+}
+```
+
+测试:
+
+```
+public class MyTest {
+
+    public static void main(String[] args) {
+        TurkeyAdapter duck = new TurkeyAdapter();//直接new即可
+        duck.quack();
+        duck.fly();
+    }
+}
+```
+
+输出和上面对象适配器一样。
 
 ### 2.3 代理模式(Proxy)
 ### 2.4 组合模式(Composite)
