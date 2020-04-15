@@ -277,8 +277,334 @@ public class MyTest {
 输出和上面对象适配器一样。
 
 ### 2.3 代理模式(Proxy)
+
+#### 2.3.1 基本概念
+
+代理模式(Proxy Pattern) ：给某一个对象提供一个代 理，并由代理对象控制对原对象的引用。代理模式的英 文叫做Proxy或Surrogate，它是一种对象结构型模式。
+
+#### 2.3.2 结构
+
+代理可以看做就是在被代理对象外面包裹一层（和装饰者类似但又不同）
+
+![图片](/images/imagesDesignPatterns/11_proxy_02.png)
+
+#### 2.3.3 案例
+
+比如我们有一个可以移动的坦克，它的主要方法是move()，但是我们需要记录它移动的时间，以及在它移动前后做日志，其静态代理的实现模式就类似下面的图:
+
+![图片](/images/imagesDesignPatterns/11_proxy_01.png)
+
+实现如下：
+
+```
+public interface Movable {
+    void move();
+}
+```
+
+```
+public class Tank implements Movable {
+    @Override
+    public void move() {
+        // 坦克移动
+        System.out.println("Tank Moving......");
+        try {
+            Thread.sleep(new Random().nextInt(5000)); // 随机产生 1~5秒, 模拟坦克在移动　
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+两个代理类: `TankTimeProxy`和`TankLogProxy`:
+
+```
+public class TankTimeProxy implements Movable {
+
+    private Movable tank;
+
+    public TankTimeProxy(Movable tank) {
+        this.tank = tank;
+    }
+
+    @Override
+    public void move() {
+        // 在前面做一些事情: 记录开始时间
+        long start = System.currentTimeMillis();
+        System.out.println("start time : " + start);
+
+        tank.move();
+
+        // 在后面做一些事情: 记录结束时间,并计算move()运行时间
+        long end = System.currentTimeMillis();
+        System.out.println("end time : " + end);
+        System.out.println("spend all time : " + (end - start)/1000 + "s.");
+    }
+}
+```
+
+```
+public class TankLogProxy implements Movable {
+
+    private Movable tank;
+
+    public TankLogProxy(Movable tank) {
+        this.tank = tank;
+    }
+
+    @Override
+    public void move() {
+        // tank 移动前记录日志
+        System.out.println("Tank Log start.......");
+
+        tank.move();
+
+        // tank 移动后记录日志
+        System.out.println("Tank Log end.......");
+    }
+}
+```
+测试
+
+```
+public class Client {
+    public static void main(String[] args){
+        Movable target = new TankLogProxy(new TankTimeProxy(new Tank()));    //先记录时间，再记录日志
+//        Movable target = new TankTimeProxy(new TankLogProxy(new Tank())); //先记录日志，再记录时间
+        target.move();
+    }
+}
+```
+
+输出
+
+```
+Tank Log start.......
+start time : 1551271511619
+Tank Moving......
+end time : 1551271514522
+spend all time : 2s.
+Tank Log end.......
+```
+
+这其中有两个很重要的点，那就是:
+
+- 两个代理对象内部都有着被代理对象(target)实现的接口的引用；
+- 且两个代理对象都实现了被代理对象(target)实现的接口；
+
+
 ### 2.4 组合模式(Composite)
 ### 2.5 装饰模式(Decorator)
+
+#### 2.5.1 基本概念
+
+装饰者模式是结构型设计模式。
+
+装饰模式以对**客户端透明的方式扩展对象的功能**，是继承关系的一个替代方案。
+
+允许向一个现有的对象添加新的功能。同时又不改变其结构，它是作为现有的类的一个包装。
+
+主要解决的问题: 一般我们为了扩展一个类经常使用继承方式实现，由于继承为类引入静态特征，并且随着扩展功能的增多，**子类会很膨胀**。
+
+#### 2.5.2 结构
+
+结构：
+
+> 装饰者（Decorator）和具体组件（ConcreteComponent）都继承自组件（Component）；
+> 所谓装饰，就是把这个装饰者套在被装饰者之上，从而动态扩展被装饰者的功能；
+> 装饰者的方法有一部分是自己的，这属于它的功能(半透明的装饰者模式)。然后调用被装饰者的方法实现，从而也保> 留了被装饰者的功能；
+
+![图片](/images/imagesDesignPatterns/03_decorator_02.png)
+
+
+#### 2.5.3 案例
+
+装饰者模式案例
+
+> 模拟在餐馆点饮料，我们可以点咖啡，而咖啡有Decaf咖啡和Espresso咖啡，而这两种咖啡都可以加牛奶和巧克力进去。
+
+具体的代码组织结构图:
+
+![图片](/images/imagesDesignPatterns/03_decorator_01.png)
+
+具体代码:
+
+先看最高的`component`包下的`Drink`类:
+
+```
+/**
+ * Component的超类
+ * 单品和装饰者都要继承自这个类
+ */
+public abstract class Drink {
+
+    private String description = ""; //一开始没有描述
+    private double price = 0; //一开始价格为0
+
+    /**
+     * 抽象方法
+     *  1、如果是单品的话就直接是自己的价格
+     *  2、如果是装饰者的话就还要加上装饰品自己的价格
+     */
+    public abstract double cost();
+
+
+    // setter getter
+
+    public String getDescription() {
+        return description;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public void setDescription(String description) { //描述的时候顺便把价格描述一下
+        this.description = description;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}
+```
+
+下面看两个具体的Component:
+
+```
+/** ConcreteComponent 1*/
+public class Decaf extends Drink {
+
+    public Decaf() {
+        super.setDescription("Decaf");
+        super.setPrice(3); //3块钱
+    }
+
+    @Override
+    public double cost() {
+        return getPrice();//super.getPrice()//这个就是父类的价格(自己什么也没加 (没有被装饰))
+    }
+
+    // 重写getter 后面加上自己的花费
+    @Override
+    public String getDescription() {
+        return super.getDescription() + "-" + cost();
+    }
+}
+```
+
+```
+/** ConcreteComponent 2
+ *  也可以在ConcreteComponent和Drink类有一个过渡的类)  (比如Coffee类)
+ */
+public class Espresso extends Drink {
+
+    public Espresso(){
+        super.setDescription("Espresso");
+        super.setPrice(4);
+    }
+
+    @Override
+    public double cost() {
+        return getPrice();//super.getPrice()//这个就是父类的价格(自己什么也没加)
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + "-" + cost();
+    }
+}
+```
+
+下面看`decorator`下的三个类:
+
+第一个是装饰者的超类，继承自`Drink`类:
+
+```
+public class Decorator extends Drink{
+    /**
+     * 这个引用很重要，可以是单品，也可以是被包装过的类型，所以使用的是超类的对象
+     * 这个就是要被包装的单品(被装饰的对象)
+     */
+    private Drink drink; //这里要拿到父类的引用，因为要控制另一个分支(具体的组件)
+
+    public Decorator(Drink drink) {
+        this.drink = drink;
+    }
+
+    /**
+     * 如果drink是已经被装包过的，那么就会产生递归调用　　最终到单品
+     */
+    @Override
+    public double cost() {
+        return super.getPrice() + drink.cost(); // 自己的价格和被包装单品的价格
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + "-" + super.getPrice()
+                + " && " + drink.getDescription();
+    }
+}
+```
+
+然后是两个装饰者:
+
+```
+/**
+ * 这个是具体的装饰者() --> 继承自中间的装饰着Decorator
+ */
+public class Chocolate extends Decorator{
+
+    public Chocolate(Drink drink) { //如果父类搞了一个　带参数的构造函数，子类必须显示的使用super调用
+        super(drink);
+        super.setDescription("Chocolate");
+        super.setPrice(1);
+    }
+}
+```
+
+```
+public class Milk extends Decorator{
+
+    public Milk(Drink drink) {
+        super(drink); //调用父类的构造函数
+        super.setDescription("Milk");
+        super.setPrice(3);
+    }
+}
+```
+
+//测试类:
+
+```
+public class MyTest {
+    public static void main(String[] args) {
+        //只点一个单品 (Decaf 咖啡)
+        Drink order = new Decaf();
+        System.out.println("order description : " + order.getDescription());
+        System.out.println("order price : " + order.cost());
+
+        System.out.println("---------------加了调料的----------------");
+
+        order = new Milk(order);// 加了牛奶
+        order = new Chocolate(order);
+        order = new Chocolate(order); // 加了两个巧克力
+        System.out.println("order description : " + order.getDescription());
+        System.out.println("order price : " + order.cost());
+    }
+}
+```
+程序输出:
+
+```
+order description : Decaf-3.0
+order price : 3.0
+---------------加了调料的----------------
+order description : Chocolate-1.0 && Chocolate-1.0 && Milk-3.0 && Decaf-3.0
+order price : 8.0
+```
+
+
+
 ### 2.6 桥模式(Bridge)
 ### 2.7 亨元模式(Flyweight)
 
