@@ -40,7 +40,7 @@
 
 ## 设计模式
 
-- [DesignPatterns](DesignPatterns/designPatters.md)
+- [DesignPatterns](DesignPatterns/designPatterns.md)
 
 参考资料 :
 
