@@ -47,6 +47,7 @@
 >- [图说设计模式](https://design-patterns.readthedocs.io/zh_CN/latest/)   
 >- [zxblog](https://github.com/huangxinchun/ZXBlog/tree/master/Other/DesignPatterns)
 >- [CS-Notes](https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%9B%AE%E5%BD%95.md)
+>- [go-设计模式](https://github.com/senghoo/golang-design-pattern)
 
 
 ## 数据结构与算法
@@ -56,8 +57,11 @@
 ## 操作系统
 
 ### linux
-
 - [linux](OperatingSystem/Linux/linux.md)
+
+参考资料 :
+
+>- [面试整理](https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md#%E4%B9%9D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 
 ## 工具
 
