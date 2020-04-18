@@ -15,6 +15,7 @@
 ### 1.2 工厂方法(Factory Method)
 ### 1.3 抽象工厂模式(Abstract Factory)
 ### 1.4 单例模式(Singleton)
+
 ### 1.5 创建者模式(Builder)
 
 ### 1.6 原型模式(Prototype)
