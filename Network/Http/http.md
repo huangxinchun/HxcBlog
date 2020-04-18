@@ -94,7 +94,7 @@ Web服务器解析请求，定位请求资源。服务器将资源复本写到TC
 **请求行**、**请求头部**、**空行**和**请求数据**四个部分组成。
 - 请求体结构
 
-![图片](/images/imagesHttp/http_01.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesHttp/http_01.png)
 
 >- 第一部分：请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.
 GET说明请求类型为GET,/doc/test.html为要访问的资源，该行的最后一部分说明使用的是HTTP1.1版本。
@@ -111,7 +111,7 @@ GET说明请求类型为GET,/doc/test.html为要访问的资源，该行的最�
 
 HTTP响应也由四个部分组成，分别是：**状态行**、**消息报头**、**空行**和**响应正文**。
 
-![图片](/images/imagesHttp/http_02.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesHttp/http_02.png)
 
 >- 第一部分：状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。
 第一行为状态行，（HTTP/1.1）表明HTTP版本为1.1版本，状态码为200，状态消息为（ok）
