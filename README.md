@@ -24,6 +24,10 @@
 
 - [mysql](Database/Mysql/mysql.md)
 
+参考资料
+
+>- [mysql](https://github.com/CyC2018/CS-Notes)
+
 ### Redis
 
 - [redis](Database/Redis/redis.md)
@@ -36,7 +40,7 @@
 
 ### http
 
-- [Http](Newwork/Http/http.md)
+- [Http](Network/Http/http.md)
 
 ## 设计模式
 
