@@ -35,9 +35,10 @@
   window.$docsify = {
     name: '首页',
     repo: 'huangxinchun',
-    loadNavbar: true,
     mergeNavbar: true,
     formatUpdated: '{YYYY}-{MM}-{DD}',
+    loadNavbar: true,
+    coverpage: true,
     plugins: [
       function (hook, vm) {
         hook.beforeEach(function (html) {
