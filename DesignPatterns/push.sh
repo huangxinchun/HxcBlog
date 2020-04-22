@@ -1,5 +1,12 @@
 #!/bin/bash
 message=$1
+
+if [ $message == "" ] ;then
+echo "请输入commit 参数"
+exit
+fi
+
+
 #当前md名称
 now_book="designPatterns.md"
 #cp的文件名称
