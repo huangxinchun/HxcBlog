@@ -4,20 +4,6 @@
 
 >各类知识总结
 
-## 语言基础
-
-### PHP
-
-- [PHP整理](Language/Php/php.md)
-
-### GO
-
-- [Golang](Language/Golang/golang.md)
-
-参考资料
->- [李文周的博客 ](https://www.liwenzhou.com/posts/Go/13_reflect/)
-
- - 
 ## 数据库
 
 ### Mysql
@@ -42,6 +28,10 @@
 
 - [Http](Network/Http/http.md)
 
+参考资料
+
+>- [CS-Notes-Http](https://github.com/CyC2018/CS-Notes/blob/master/notes/HTTP.md)
+
 ## 设计模式
 
 - [DesignPatterns](DesignPatterns/designPatterns.md)
@@ -53,14 +43,20 @@
 >- [CS-Notes](https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%9B%AE%E5%BD%95.md)
 >- [go-设计模式](https://github.com/senghoo/golang-design-pattern)
 
-
 ## 数据结构与算法
 
 - [Algorithm](Algorithm/algorithm.md)
 
-## 操作系统
+## 操作系统与设计
 
 ### linux
+- [linux](OperatingSystem/Linux/linux.md)
+
+参考资料 :
+
+>- [面试整理](https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md#%E4%B9%9D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+
+### 集群设计
 - [linux](OperatingSystem/Linux/linux.md)
 
 参考资料 :
@@ -73,6 +69,17 @@
 
 - [git](Tools/Git/git.md)
 
+### PHP
+
+- [PHP整理](Language/Php/php.md)
+
+### GO
+
+- [Golang](Language/Golang/golang.md)
+
+参考资料
+>- [李文周的博客 ](https://www.liwenzhou.com/posts/Go/13_reflect/)
+
 ### 前端方面
 
 - [html/css](Frontend)
@@ -80,3 +87,5 @@
 
 - 参考资料
 >- https://zhuanlan.zhihu.com/p/21935921
+
+## 语言基础
