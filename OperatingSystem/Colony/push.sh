@@ -7,7 +7,7 @@ exit
 fi
 
 #当前md名称
-now_book="linux.md"
+now_book="colony.md"
 #cp的文件名称
 book="2020-04-13-my-$now_book"
 #中间bak文件名
@@ -30,7 +30,7 @@ cp $book $book_bak
 #添加固定的头
 echo "---
 layout:     post                    # 使用的布局（不需要改）
-title:      linux总结              # 标题
+title:      集群总结              # 标题
 subtitle:   坚持坚持再坚持      #副标题
 date:       2020-04-13              # 时间
 author:     hxc                      # 作者
