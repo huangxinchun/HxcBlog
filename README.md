@@ -57,7 +57,7 @@
 >- [面试整理](https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md#%E4%B9%9D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 
 ### 集群设计
-- [集群](OperatingSystem/Linux/linux.md)
+- [集群设计](OperatingSystem/Colony/colony.md)
 
 参考资料 :
 
