@@ -36,7 +36,7 @@ date:       2020-04-13              # 时间
 author:     hxc                      # 作者
 header-img:    #这篇文章标题背景图片
 catalog: true                       # 是否归档
-categories: 
+categories: 集群
 tags:                               #标签
     - linux
 ---" > $book 

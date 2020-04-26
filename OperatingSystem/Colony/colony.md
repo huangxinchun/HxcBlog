@@ -187,3 +187,4 @@ HTTP 重定向负载均衡服务器使用某种负载均衡算法计算得到服
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesColony/colony12.png)
 
 
+
