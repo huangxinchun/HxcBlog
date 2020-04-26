@@ -7,7 +7,7 @@ exit
 fi
 
 #当前md名称
-now_book="colony.md"
+now_book="distributed.md"
 #cp的文件名称
 book="2020-04-13-my-$now_book"
 #中间bak文件名
