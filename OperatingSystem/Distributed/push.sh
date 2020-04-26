@@ -30,13 +30,13 @@ cp $book $book_bak
 #添加固定的头
 echo "---
 layout:     post                    # 使用的布局（不需要改）
-title:      集群总结              # 标题
+title:      分布式总结              # 标题
 subtitle:   坚持坚持再坚持      #副标题
 date:       2020-04-13              # 时间
 author:     hxc                      # 作者
 header-img:    #这篇文章标题背景图片
 catalog: true                       # 是否归档
-categories: 集群
+categories: 分布式
 tags:                               #标签
     - linux
 ---" > $book 
