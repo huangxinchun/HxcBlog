@@ -18,6 +18,11 @@
 
 - [redis](Database/Redis/redis.md)
 
+参考资料
+
+- [mysql](https://github.com/CyC2018/CS-Notes)
+
+
 ## 计算机网络
 
 ### tcp/ip
