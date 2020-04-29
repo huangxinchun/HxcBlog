@@ -21,7 +21,7 @@
 参考资料
 
 - [redis](https://github.com/CyC2018/CS-Notes)
-- [redis-b](https://github.com/CyC2018/CS-Notes)
+- [redis-b](https://blog.csdn.net/itcats_cn/article/details/82391719)
 
 
 ## 计算机网络
