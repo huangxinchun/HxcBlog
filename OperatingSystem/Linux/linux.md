@@ -418,7 +418,7 @@ strace常用参数：
 # strace -ff -o ./xxxx  对应进程
 
 3. 查FPM进程的所有网络调用
-# strace -frt -e trace=network -p pid
+# strace -frt -e trace=network -p pid (http://blog.wingflare.com/2019/11/mr1pjzwm7qw2go4e.html)
 ```
 
 #### 9.1.1.6  lsof
