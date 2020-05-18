@@ -53,6 +53,10 @@
 
 - [Algorithm](Algorithm/algorithm.md)
 
+参考资料
+
+- [reids-bolg](https://blog.csdn.net/csdn_aiyang/article/details/84837553#%E7%AC%AC1%E8%8A%82%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0)
+
 ## 操作系统与设计
 
 ### linux
