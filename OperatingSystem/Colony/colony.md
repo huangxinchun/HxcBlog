@@ -17,7 +17,7 @@
 
 ## 1 负载均衡算法
 
-### 1.1 轮询 (Round Robin)
+### 1.1 轮询 (Round Robin)(nginx默认)
 
 轮询算法把每个请求轮流发送到每个服务器上。
 
@@ -36,6 +36,14 @@
 例如下图中，服务器 1 被赋予的权值为 5，服务器 2 被赋予的权值为 1，那么 (1, 2, 3, 4, 5) 请求会被发送到服务器 1，(6) 请求会被发送到服务器 2。
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesColony/colony3.png)
+
+`nginx配置`
+```
+upstream bakend {    
+server 192.168.0.14 weight=10;    
+server 192.168.0.15 weight=10;    
+}  
+```
 
 
 ### 1.3 最少连接（least Connections）
@@ -75,6 +83,14 @@
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesColony/colony7.png)
 
+`nginx配置`
+```
+upstream bakend {    
+ip_hash;    
+server 192.168.0.14:88;    
+server 192.168.0.15:80;    
+}  
+```
 ## 2 转发实现
 
 ### 2.1 HTTP 重定向
@@ -91,7 +107,7 @@ HTTP 重定向负载均衡服务器使用某种负载均衡算法计算得到服
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesColony/colony8.png)
 
 
-### 2.1 DNS 域名解析
+### 2.2 DNS 域名解析
 
 在 DNS 解析域名的同时使用负载均衡算法计算服务器 IP 地址。
 
@@ -107,7 +123,7 @@ HTTP 重定向负载均衡服务器使用某种负载均衡算法计算得到服
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesColony/colony9.png)
 
-### 2.1 反向代理服务器
+### 2.3 反向代理服务器
 
 反向代理服务器位于源服务器前面，用户的请求需要先经过反向代理服务器才能到达源服务器。反向代理可以用来进行缓存、日志记录等，同时也可以用来做为负载均衡服务器。
 
@@ -122,7 +138,7 @@ HTTP 重定向负载均衡服务器使用某种负载均衡算法计算得到服
    - 所有请求和响应都需要经过反向代理服务器，它可能会成为性能瓶颈。
 
 
-### 2.1 网络层
+### 2.4 网络层
 
 在操作系统内核进程获取网络数据包，根据负载均衡算法计算源服务器的 IP 地址，并修改请求数据包的目的 IP 地址，最后进行转发。
 
@@ -137,7 +153,7 @@ HTTP 重定向负载均衡服务器使用某种负载均衡算法计算得到服
    - 和反向代理一样，所有的请求和响应都经过负载均衡服务器，会成为性能瓶颈。
 
 
-### 2.1 链路层
+### 2.5 链路层
 
 在`链路层`根据`负载均衡算法计算源服务器`的 `MAC 地址`，并修改请求数据包的目的 `MAC 地址`，并`进行转发`。
 
