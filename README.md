@@ -55,7 +55,8 @@
 
 参考资料
 
-- [reids-bolg](https://blog.csdn.net/csdn_aiyang/article/details/84837553#%E7%AC%AC1%E8%8A%82%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0)
+- [数据结构-bolg](https://blog.csdn.net/csdn_aiyang/article/details/84837553#%E7%AC%AC1%E8%8A%82%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%BF%B0)
+- []()
 
 ## 操作系统与设计
 
@@ -67,7 +68,7 @@
 - [面试整理](https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md#%E4%B9%9D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 
 ### 集群设计
-- [集群设计](OperatingSystem/Colony/colony.md)
+- [集群设计](OperatingSystem/Distributed/distributed.md)
 
 参考资料 :
 
