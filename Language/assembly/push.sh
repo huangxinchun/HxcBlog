@@ -7,7 +7,7 @@ exit
 fi
 
 #当前md名称
-now_book="C.md"
+now_book="php.md"
 #cp的文件名称
 book="2020-04-13-my-$now_book"
 #中间bak文件名
@@ -30,15 +30,15 @@ cp $book $book_bak
 #添加固定的头
 echo "---
 layout:     post                    # 使用的布局（不需要改）
-title:      C总结              # 标题
+title:      PHP总结              # 标题 
 subtitle:   坚持坚持再坚持      #副标题
 date:       2020-04-13              # 时间
 author:     hxc                      # 作者
 header-img:    #这篇文章标题背景图片
 catalog: true                       # 是否归档
-categories:
+categories: 
 tags:                               #标签
-    - C语言
+    - PHP
 ---" > $book 
 #写入内容
 cat $book_bak >> $book
