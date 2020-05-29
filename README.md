@@ -99,6 +99,14 @@
 
 - [Golang](Language/Golang/golang.md)
 
+### C语言
+
+- [C语言整理](Language/C/C.md)
+
+### 汇编
+
+- [汇编语言](Language/Assembly/assembly.md)
+
 参考资料
 - [李文周的博客 ](https://www.liwenzhou.com/posts/Go/13_reflect/)
 
