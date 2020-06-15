@@ -43,7 +43,7 @@
 - [DesignPatterns](DesignPatterns/designPatterns.md)
 
 参考资料 :
-
+- [详解版](http://c.biancheng.net/view/1348.html)
 - [图说设计模式](https://design-patterns.readthedocs.io/zh_CN/latest/)
 - [zxblog](https://github.com/huangxinchun/ZXBlog/tree/master/Other/DesignPatterns)
 - [CS-Notes](https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20%E7%9B%AE%E5%BD%95.md)
