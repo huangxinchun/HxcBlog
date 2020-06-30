@@ -37,7 +37,7 @@
 参考资料
 
 - [CS-Notes-Http](https://github.com/CyC2018/CS-Notes/blob/master/notes/HTTP.md)
-
+- [网络基础](https://www.cnblogs.com/maybe2030/p/4781555.html#_label1)
 ## 设计模式
 
 - [DesignPatterns](DesignPatterns/designPatterns.md)
