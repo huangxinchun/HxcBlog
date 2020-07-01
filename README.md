@@ -13,7 +13,7 @@
 参考资料
 
 - [mysql](https://github.com/CyC2018/CS-Notes)
-
+- [优化原理](https://juejin.im/entry/590427815c497d005832dab9)
 ### Redis
 
 - [redis](Database/Redis/redis.md)
