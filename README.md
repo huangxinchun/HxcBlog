@@ -78,6 +78,7 @@
 参考资料 :
 
 - [面试整理](https://github.com/CyC2018/CS-Notes/blob/master/notes/Linux.md#%E4%B9%9D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+- [CAP 定理的含义](http://www.ruanyifeng.com/blog/2018/07/cap.html)
 
 ### 分布式设计
 - [分布式设计](OperatingSystem/Colony/colony.md)
