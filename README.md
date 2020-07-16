@@ -108,6 +108,7 @@
    
 参考资料 ：
 - [面试题](https://blog.csdn.net/weiyuefei/article/details/77963810)
+- [并发详解](https://www.jianshu.com/p/fa6d82934cb8)
 ### C语言
 
 - [C语言整理](Language/C/C.md)
