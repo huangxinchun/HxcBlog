@@ -106,7 +106,6 @@ redis采用多路复用机制：即多个网络socket复用一个io线程，实�
 
 8.append key value：如果该key存在，则在原有的value后追加该值；如果该key    不存在，则重新创建一个key/value
 ```
-
 ```
 > set hello world
 OK
@@ -152,7 +151,6 @@ Redis列表是简单的字符串列表，按照插入顺序排序。你可以添
 9.llen key：返回指定的key关联的链表中的元素的数量。
 
 10.lset key index value：设置链表中的index的脚标的元素值，0代表链表的头元素，-1代表链表的尾元素。
-
 ```
 
 ```
