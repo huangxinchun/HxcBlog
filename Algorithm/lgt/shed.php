@@ -64,4 +64,5 @@ $stack = new stackList();
 var_dump($stack->push("11"));
 var_dump($stack->push("22"));
 var_dump($stack->push("33"));
+var_dump($stack->stack->bottom);
 var_dump($stack->stack);
