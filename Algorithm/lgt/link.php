@@ -163,4 +163,3 @@ var_dump($link->insertItem(44, 22));
 //var_dump($link->detele(2));
 var_dump($link->getNode(2));
 $link->forLink();
-
