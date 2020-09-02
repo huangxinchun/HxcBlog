@@ -60,7 +60,6 @@ class tree
                     break;
                 }
             }
-            var_dump($node);
         }
         return $data;
 
@@ -78,9 +77,30 @@ class tree
     }
 
     //中序遍历
+    public function middle($tree)
+    {
+        if ($tree == null) {
+            return ;
+        }
+        $this->middle($tree->left);
+        echo $tree->data;
+        $this->middle($tree->right);
+    }
 
+    //后序遍历
+    public function backend($tree)
+    {
+        if ($tree == null) {
+            return ;
+        }
+        $this->backend($tree->left);
+        $this->middle($tree->right);
+        echo $tree->data;
+    }
     //删除节点
+
 }
+
 
 $tree = new tree();
 var_dump($tree->insertNode(6));
@@ -89,5 +109,8 @@ var_dump($tree->insertNode(9));
 var_dump($tree->insertNode(5));
 var_dump($tree->insertNode(3));
 var_dump($tree->insertNode(4));
+var_dump($tree->insertNode(2));
 var_dump($tree->tree);
-$tree->front($tree->tree);
+//$tree->front($tree->tree);
+//$tree->middle($tree->tree);
+$tree->backend($tree->tree);
