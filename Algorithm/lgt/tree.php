@@ -70,7 +70,7 @@ class tree
         if($tree == null) {
             return ;
         }
-        echo $tree->data;
+        echo $tree->data."\r\n";
         $this->front($tree->left);
         $this->front($tree->right);
 
@@ -83,7 +83,7 @@ class tree
             return ;
         }
         $this->middle($tree->left);
-        echo $tree->data;
+        echo $tree->data."\r\n";
         $this->middle($tree->right);
     }
 
@@ -95,7 +95,7 @@ class tree
         }
         $this->backend($tree->left);
         $this->middle($tree->right);
-        echo $tree->data;
+        echo $tree->data."\r\n";
     }
     //删除节点
 
@@ -103,14 +103,13 @@ class tree
 
 
 $tree = new tree();
-var_dump($tree->insertNode(6));
-var_dump($tree->insertNode(7));
 var_dump($tree->insertNode(9));
+var_dump($tree->insertNode(8));
+var_dump($tree->insertNode(10));
 var_dump($tree->insertNode(5));
-var_dump($tree->insertNode(3));
+var_dump($tree->insertNode(6));
 var_dump($tree->insertNode(4));
-var_dump($tree->insertNode(2));
-var_dump($tree->tree);
+print_r($tree->tree);
 //$tree->front($tree->tree);
 //$tree->middle($tree->tree);
 $tree->backend($tree->tree);
