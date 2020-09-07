@@ -34,17 +34,21 @@ class treeInsert
      * author hxc
      * @param $data
      */
-    public function frontInsert($data)
+    public function frontInsert(&$tree, $data = array())
     {
-        //空树
-        if ($this->tree == null) {
-            $this->tree = new node($data);
+        if (count($data) == 0) {
+            echo "插入完成";
         }
-        //
-        if ($this->tree->left ) {
+        $data = $data[0];
+        unset($data[0]);
+        $data = array_column($data);
 
+        if ($data->data == null) {
+            return ;
         }
 
+        $this->frontInsert($tree->left);
+        $this->frontInsert($tree->right);
 
     }
     //中序插入
