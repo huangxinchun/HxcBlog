@@ -28,30 +28,65 @@ class treeInsert
 
     public $tree = null;
 
+    public $data = [];
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
     /**
      *
      * 前序插入 先插入根。再左结点，再右结点
      * author hxc
      * @param $data
      */
-    public function frontInsert(&$tree, $data = array())
+    public function frontInsert(&$tree)
     {
-        if (count($data) == 0) {
+        $arr = $this->data;
+        if (count($arr) == 0) {
             echo "插入完成";
+            return "";
         }
-        $data = $data[0];
-        unset($data[0]);
-        $data = array_column($data);
 
-        if ($data->data == null) {
+        $data = $arr[0];
+        unset($arr[0]);
+
+        $this->data = array_values($arr);
+        //为#退出
+        if ($data == '#') {
+            $tree = new node($data);
             return ;
         }
-
+        $tree = new node($data);
         $this->frontInsert($tree->left);
         $this->frontInsert($tree->right);
-
+        return $tree;
     }
+
     //中序插入
 
     //后序插入
+
+    /**
+     * 前序遍历
+     */
+    public function frontGet($tree)
+    {
+        if ($tree == null) {
+            return ;
+        }
+        echo $tree->data;
+        $this->frontGet($tree->left);
+        $this->frontGet($tree->right);
+    }
 }
+
+$data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];
+
+$tree = new treeInsert($data);
+//插入
+$data = $tree->frontInsert($tree->tree);
+
+print_r($data);
+$tree->frontGet($data);
+exit;
