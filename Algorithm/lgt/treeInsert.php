@@ -43,6 +43,9 @@ class treeInsert
     public function frontInsert(&$tree)
     {
         $data = $this->handlerData();
+        if (empty($data)) {
+            return $data;
+        }
         //为#退出
         if ($data == '#') {
             $tree = new node($data);
@@ -57,29 +60,6 @@ class treeInsert
     //
 
     /**
-     * 中序插入 先插入左结点，再根结点，再右结点
-     * author hxc
-     * @param $tree
-     * @return node|void
-     */
-    public function middleInsert(&$tree)
-    {
-        $data = $this->handlerData();
-        var_dump($data);
-        exit;
-        //为#退出
-        if ($data == "#") {
-            $tree = new node($data);
-            return ;
-        }
-        $this->middleInsert($tree->left);
-        $tree = new node($data);
-        $this->middleInsert($tree->right);
-        return $tree;
-    }
-
-
-    /**
      * 数据处理
      * author hxc
      * @return array|string
@@ -87,7 +67,6 @@ class treeInsert
     public function handlerData()
     {
         $arr = $this->data;
-
         if (count($arr) == 0) {
             echo "插入完成";
             return "";
@@ -121,9 +100,8 @@ $data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];
 $tree = new treeInsert($data);
 
 //插入
-//$data = $tree->frontInsert($tree->tree);
-$data = $tree->middleInsert($tree->tree);
+$data = $tree->frontInsert($tree->tree);
+//$data = $tree->middleInsert($tree->tree);
 
-print_r($data);
 $tree->frontGet($data);
 exit;
