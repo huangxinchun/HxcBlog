@@ -395,7 +395,7 @@ HTTP 有以下安全性问题：
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesHttp/http_06.png)
 
-### 8.1.3 非对称密钥加密
+### 8.1.3 HTTPS 采用的加密方式
 
 上面提到`对称密钥加密方式`的传输效率更高，但是无法安全地将密钥 Secret Key 传输给通信方。而非对称密钥加密方式可以保证传输的安全性，因此我们可以利用`非对称密钥加密方式将 Secret Key 传输给通信方`。HTTPS 采用混合的加密机制，正是利用了上面提到的方案：
 
