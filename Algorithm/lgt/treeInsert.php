@@ -93,6 +93,21 @@ class treeInsert
         $this->frontGet($tree->left);
         $this->frontGet($tree->right);
     }
+
+    /**
+     * 求树的深度
+     * https://blog.csdn.net/u011583316/article/details/90318888
+     */
+
+    /**
+     *
+     * 判断是否平衡树
+     */
+
+    /**
+     * 插入实现平衡二叉树
+     *  https://www.cnblogs.com/weiyalin/p/10817111.html
+     */
 }
 
 $data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];

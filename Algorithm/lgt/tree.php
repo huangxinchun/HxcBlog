@@ -101,7 +101,6 @@ class tree
 
 }
 
-
 $tree = new tree();
 var_dump($tree->insertNode(9));
 var_dump($tree->insertNode(8));
