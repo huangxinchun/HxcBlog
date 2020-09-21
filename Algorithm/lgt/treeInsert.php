@@ -48,7 +48,7 @@ class treeInsert
         }
         //为#退出
         if ($data == '#') {
-            $tree = new node($data);
+//            $tree = new node($data);
             return ;
         }
         $tree = new node($data);
@@ -98,16 +98,29 @@ class treeInsert
      * 求树的深度
      * https://blog.csdn.net/u011583316/article/details/90318888
      */
+    public function getDeep($tree)
+    {
+        if ($tree != null) {
+            $left_deep = $this->getDeep($tree->left);
+            $right_deep = $this->getDeep($tree->right);
+            $number = $left_deep > $right_deep ? $left_deep + 1 : $right_deep + 1;
+            return $number;
+        }
+        return null;
+    }
 
     /**
      *
      * 判断是否平衡树
+     * 二叉树中任意结点的左右子树的深度相差不超过1
      */
+    public function isBanlan
 
     /**
      * 插入实现平衡二叉树
      *  https://www.cnblogs.com/weiyalin/p/10817111.html
      */
+
 }
 
 $data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];
@@ -119,4 +132,8 @@ $data = $tree->frontInsert($tree->tree);
 //$data = $tree->middleInsert($tree->tree);
 
 $tree->frontGet($data);
+var_dump(null + 1);
+echo "\r\n";
+print_r($tree->tree);
+echo $tree->getDeep($tree->tree);
 exit;
