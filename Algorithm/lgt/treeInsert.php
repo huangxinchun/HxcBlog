@@ -79,7 +79,6 @@ class treeInsert
 
         return $data;
     }
-    //后序插入
 
     /**
      * 前序遍历
@@ -114,16 +113,30 @@ class treeInsert
      * 判断是否平衡树
      * 二叉树中任意结点的左右子树的深度相差不超过1
      */
-    public function isBanlan
+    public function isBanlanced($tree)
+    {
+
+        if($tree == null) {
+            return true;
+        }
+        $left_deep = $this->getDeep($tree->left);
+        $right_deep = $this->getDeep($tree->right);
+        if (abs($left_deep - $right_deep) > 1) {
+            return false;
+        }
+        return $this->isBanlanced($tree->left) && $this->isBanlanced($tree->right);
+    }
 
     /**
      * 插入实现平衡二叉树
      *  https://www.cnblogs.com/weiyalin/p/10817111.html
      */
 
+
 }
 
-$data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];
+//$data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];
+$data = ['A', 'B', "#", "#", "D", "#", "#"];
 
 $tree = new treeInsert($data);
 
@@ -136,4 +149,6 @@ var_dump(null + 1);
 echo "\r\n";
 print_r($tree->tree);
 echo $tree->getDeep($tree->tree);
+echo "\r\n";
+var_dump($tree->isBanlanced($tree->tree));
 exit;
