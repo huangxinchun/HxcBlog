@@ -17,6 +17,8 @@ class Tree{
 
 }
 
+
+
 class BinarySortTree
 {
     public $tree;
@@ -26,7 +28,9 @@ class BinarySortTree
         return $this->tree;
     }
 
-    //插入
+    public function getAV
+
+    //插入二叉搜索树。也叫二叉排序树
     public function insertTree($data)
     {
         if(!$this->tree){
@@ -52,7 +56,6 @@ class BinarySortTree
             }
         }
     }
-
 
 
     //删除
@@ -120,14 +123,28 @@ class BinarySortTree
         $this->front($tree->right);
 
     }
+
+    /**
+     * 插入实现平衡二叉树
+     *  https://www.cnblogs.com/weiyalin/p/10817111.html
+     */
+    public function insertBanlanced()
+    {
+
+    }
 }
 
 $sortTree=new BinarySortTree();
-$sortTree->insertTree(9);
-$sortTree->insertTree(8);
-$sortTree->insertTree(10);
+$sortTree->insertTree(3);
+$sortTree->insertTree(2);
+$sortTree->insertTree(1);
+$sortTree->insertTree(4);
 $sortTree->insertTree(5);
 $sortTree->insertTree(6);
-$sortTree->insertTree(4);
+$sortTree->insertTree(7);
+$sortTree->insertTree(10);
+$sortTree->insertTree(9);
+$sortTree->insertTree(8);
 $sortTree->front($sortTree->tree);
+print_r($sortTree->getTree());
 

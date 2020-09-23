@@ -127,12 +127,6 @@ class treeInsert
         return $this->isBanlanced($tree->left) && $this->isBanlanced($tree->right);
     }
 
-    /**
-     * 插入实现平衡二叉树
-     *  https://www.cnblogs.com/weiyalin/p/10817111.html
-     */
-
-
 }
 
 //$data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];
