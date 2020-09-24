@@ -19,6 +19,7 @@ class Tree{
 
 
 
+
 class BinarySortTree
 {
     public $tree;
@@ -28,7 +29,10 @@ class BinarySortTree
         return $this->tree;
     }
 
-    public function getAV
+    public function getAvlTree()
+    {
+
+    }
 
     //插入二叉搜索树。也叫二叉排序树
     public function insertTree($data)
@@ -127,6 +131,7 @@ class BinarySortTree
     /**
      * 插入实现平衡二叉树
      *  https://www.cnblogs.com/weiyalin/p/10817111.html
+     *
      */
     public function insertBanlanced()
     {
