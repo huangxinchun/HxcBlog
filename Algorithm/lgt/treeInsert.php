@@ -130,6 +130,7 @@ class treeInsert
         return $this->isBanlanced($tree->left) && $this->isBanlanced($tree->right);
     }
 
+
 }
 
 //$data = ['A', 'B', 'C', "#", "D", "#", "#", "F"];

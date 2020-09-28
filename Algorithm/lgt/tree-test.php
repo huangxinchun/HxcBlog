@@ -17,6 +17,18 @@ class Tree{
 
 }
 
+class AvlTree {
+    public $data = '';
+    public $left = null;
+    public $right = null;
+    public $bf = 0;
+    public $parent = null;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+}
 
 
 
@@ -24,6 +36,12 @@ class BinarySortTree
 {
     public $tree;
 
+    //平衡二叉树
+    public $avlTree;
+    const LH = 1;
+    const EH = 0;
+    const RH = -1;
+    //----
     public function getTree()
     {
         return $this->tree;
