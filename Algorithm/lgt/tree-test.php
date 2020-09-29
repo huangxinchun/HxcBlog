@@ -38,10 +38,13 @@ class BinarySortTree
 
     //平衡二叉树
     public $avlTree;
+    //左不平衡
     const LH = 1;
     const EH = 0;
+    //右不平衡
     const RH = -1;
     //----
+
     public function getTree()
     {
         return $this->tree;
@@ -49,7 +52,7 @@ class BinarySortTree
 
     public function getAvlTree()
     {
-
+        return $this->getAvlTree();
     }
 
     //插入二叉搜索树。也叫二叉排序树
@@ -151,9 +154,21 @@ class BinarySortTree
      *  https://www.cnblogs.com/weiyalin/p/10817111.html
      *
      */
-    public function insertBanlanced()
+    public function insertBanlanced($data, &$avlTree)
     {
+        if (!$avlTree) {
+            $avlTree = new AvlTree($data);
+            $avlTree->bf = self::EH;
+        }
 
+        if ($data < $avlTree->data) {
+            if (!$this->insertBanlanced($data, $avlTree->left)) {
+                return false;
+            }
+            if (empty($avlTree) {
+                $avlTree->parent = $;
+            }
+        }
     }
 }
 
