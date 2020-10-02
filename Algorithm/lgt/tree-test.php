@@ -167,6 +167,7 @@ class BinarySortTree
             }
             if (empty($avlTree->left->parent)) {
                 $avlTree->left->parent = $avlTree;
+                
             }
 
         }
