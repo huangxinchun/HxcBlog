@@ -121,12 +121,9 @@ class treeInsert
         }
         $left_deep = $this->getDeep($tree->left);
         $right_deep = $this->getDeep($tree->right);
-        var_dump($left_deep, $right_deep);
-        var_dump($left_deep - $right_deep);
-        echo "\r\n";
-        /*if (abs($left_deep - $right_deep) > 1) {
+        if (abs($left_deep - $right_deep) > 1) {
             return false;
-        }*/
+        }
         return $this->isBanlanced($tree->left) && $this->isBanlanced($tree->right);
     }
 
