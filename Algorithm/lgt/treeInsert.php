@@ -121,6 +121,7 @@ class treeInsert
         }
         $left_deep = $this->getDeep($tree->left);
         $right_deep = $this->getDeep($tree->right);
+        echo "\r\n";
         if (abs($left_deep - $right_deep) > 1) {
             return false;
         }

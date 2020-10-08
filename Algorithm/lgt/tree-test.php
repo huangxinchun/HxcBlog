@@ -165,9 +165,9 @@ class BinarySortTree
             if (!$this->insertBanlanced($data, $avlTree->left)) {
                 return false;
             }
+            
             if (empty($avlTree->left->parent)) {
                 $avlTree->left->parent = $avlTree;
-
             }
 
         }
