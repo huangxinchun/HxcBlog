@@ -199,9 +199,6 @@ class BinarySortTree
 
                 }
             }
-
-        } else {
-
         }
     }
 }
