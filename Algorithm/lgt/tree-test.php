@@ -6,18 +6,21 @@
  * Time: 16:37
  */
 
-class Tree{
-    public $res='';
-    public $left=null;
-    public $right=null;
+class Tree
+{
+    public $res = '';
+    public $left = null;
+    public $right = null;
+
     public function __construct($res)
     {
-        $this->res=$res;
+        $this->res = $res;
     }
 
 }
 
-class AvlTree {
+class AvlTree
+{
     public $data = '';
     public $left = null;
     public $right = null;
@@ -31,7 +34,6 @@ class AvlTree {
 }
 
 
-
 class BinarySortTree
 {
     public $tree;
@@ -40,9 +42,11 @@ class BinarySortTree
     public $avlTree;
     //左不平衡
     const LH = 1;
+    //平衡
     const EH = 0;
     //右不平衡
     const RH = -1;
+
     //----
 
     public function getTree()
@@ -58,26 +62,26 @@ class BinarySortTree
     //插入二叉搜索树。也叫二叉排序树
     public function insertTree($data)
     {
-        if(!$this->tree){
-            $this->tree=new Tree($data);
-            return ;
+        if (!$this->tree) {
+            $this->tree = new Tree($data);
+            return;
         }
-        $p=$this->tree;
-        while($p){
-            if($data<$p->res){  //如果插入结点当前结点
-                if(!$p->left){  //并且不存在左子结点
-                    $p->left=new Tree($data);
-                    return ;
+        $p = $this->tree;
+        while ($p) {
+            if ($data < $p->res) {  //如果插入结点当前结点
+                if (!$p->left) {  //并且不存在左子结点
+                    $p->left = new Tree($data);
+                    return;
                 }
-                $p=$p->left;
-            }elseif ($data>$p->res){
-                if(!$p->right){
-                    $p->right=new Tree($data);
-                    return ;
+                $p = $p->left;
+            } elseif ($data > $p->res) {
+                if (!$p->right) {
+                    $p->right = new Tree($data);
+                    return;
                 }
-                $p=$p->right;
-            }else{
-                return ;
+                $p = $p->right;
+            } else {
+                return;
             }
         }
     }
@@ -92,61 +96,73 @@ class BinarySortTree
         $p = $this->tree;
         $fatherP = null;
         while ($p && $p->res !== $data) {
-            $fatherP=$p; //结点的父结点
+            $fatherP = $p; //结点的父结点
             if ($data > $p->res) {
                 $p = $p->right;
-            }else{
-                $p=$p->left;
+            } else {
+                $p = $p->left;
             }
         }
 
         //如果二叉树不存在
-        if($p==null){
-            var_dump('当前树中没有此结点');return;
+        if ($p == null) {
+            var_dump('当前树中没有此结点');
+            return;
         }
 
         //待删除待有两个子结点
-        if($p->left && $p->right){
-            $minR=$p->right;
-            $minRR=$p;// 最小结点的父结点
+        if ($p->left && $p->right) {
+            $minR = $p->right;
+            $minRR = $p;// 最小结点的父结点
             //查找右子树的最小结点
-            while($minR->left){
-                $minRR=$minR;
-                $minR=$minR->left;
+            while ($minR->left) {
+                $minRR = $minR;
+                $minR = $minR->left;
             }
-            $p->res=$minR->res;//把右子树上最小结点的值赋值给待删除结点
-            $p=$minR;
-            $fatherP=$minRR;
+            $p->res = $minR->res;//把右子树上最小结点的值赋值给待删除结点
+            $p = $minR;
+            $fatherP = $minRR;
 
         }
-        $child=null;
-        if($p->left){
-            $child=$p->left;
-        }elseif($p->right){
-            $child=$p->right;
-        }else{
-            $child=null;
+        $child = null;
+        if ($p->left) {
+            $child = $p->left;
+        } elseif ($p->right) {
+            $child = $p->right;
+        } else {
+            $child = null;
         }
 
-        if(!$fatherP){ //待删除结点是根结点
-            $this->tree=$child;
-        }elseif ($fatherP->left==$p){ //待删除结点只有一个左结点，把待删除结点的父结点的left指向待删除结点的子节点
-            $fatherP->left=$child;
-        }else{                        //待删除结点只有一个右结点，把待删除结点的父结点的right指向待删除结点的子节点
-            $fatherP->right=$child;
+        if (!$fatherP) { //待删除结点是根结点
+            $this->tree = $child;
+        } elseif ($fatherP->left == $p) { //待删除结点只有一个左结点，把待删除结点的父结点的left指向待删除结点的子节点
+            $fatherP->left = $child;
+        } else {                        //待删除结点只有一个右结点，把待删除结点的父结点的right指向待删除结点的子节点
+            $fatherP->right = $child;
         }
 
     }
+
     //前序遍历节点
     public function front($tree)
     {
-        if($tree == null) {
-            return ;
+        if ($tree == null) {
+            return;
         }
-        echo $tree->res."\r\n";
+        echo $tree->res . "\r\n";
         $this->front($tree->left);
         $this->front($tree->right);
 
+    }
+
+    /**
+     * 插入二叉平衡树
+     * author hxc
+     * @param $data
+     */
+    public function insertAvlTree($data)
+    {
+        $this->insertBanlanced($data, $this->avlTree);
     }
 
     /**
@@ -159,21 +175,38 @@ class BinarySortTree
         if (!$avlTree) {
             $avlTree = new AvlTree($data);
             $avlTree->bf = self::EH;
+            return true;
         }
 
         if ($data < $avlTree->data) {
             if (!$this->insertBanlanced($data, $avlTree->left)) {
                 return false;
+            } else {
+                if (empty($avlTree->left->parent)) {
+                    $avlTree->left->parent = $avlTree;
+                }
+                //判斷是否需要調整
+                switch ($avlTree->bf) {
+                    case self::LH: //左子树偏高，需要对左子树调节
+                        //需要调节
+                        return false;
+                    case self::EH: //由等高变为左高有, 需要继续判断上层结点是否需要调节
+                        $avlTree->bf = self::LH;
+                        return true;
+                    case self::RH: //由右高变为等高，树的整体高度没有发生变化，不需要调整
+                        $avlTree->bf = self::EH;
+                        return false;
+
+                }
             }
-            if (empty($avlTree->left->parent)) {
-                $avlTree->left->parent = $avlTree;
-            }
+
+        } else {
 
         }
     }
 }
 
-$sortTree=new BinarySortTree();
+$sortTree = new BinarySortTree();
 $sortTree->insertTree(3);
 $sortTree->insertTree(2);
 $sortTree->insertTree(1);
