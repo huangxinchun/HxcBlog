@@ -56,7 +56,7 @@ class BinarySortTree
 
     public function getAvlTree()
     {
-        return $this->getAvlTree();
+        return $this->avlTree;
     }
 
     //插入二叉搜索树。也叫二叉排序树
@@ -204,16 +204,20 @@ class BinarySortTree
 }
 
 $sortTree = new BinarySortTree();
-$sortTree->insertTree(3);
-$sortTree->insertTree(2);
-$sortTree->insertTree(1);
-$sortTree->insertTree(4);
-$sortTree->insertTree(5);
-$sortTree->insertTree(6);
-$sortTree->insertTree(7);
-$sortTree->insertTree(10);
-$sortTree->insertTree(9);
-$sortTree->insertTree(8);
-$sortTree->front($sortTree->tree);
-print_r($sortTree->getTree());
+//$sortTree->insertTree(3);
+//$sortTree->insertTree(2);
+//$sortTree->insertTree(1);
+//$sortTree->insertTree(4);
+//$sortTree->insertTree(5);
+//$sortTree->insertTree(6);
+//$sortTree->insertTree(7);
+//$sortTree->insertTree(10);
+//$sortTree->insertTree(9);
+//$sortTree->insertTree(8);
+//$sortTree->front($sortTree->tree);
+//print_r($sortTree->getTree());
+
+$sortTree->insertAvlTree(3);
+$sortTree->insertAvlTree(2);
+var_dump($sortTree->getAvlTree());
 
