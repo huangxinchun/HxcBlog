@@ -189,6 +189,7 @@ class BinarySortTree
                 switch ($avlTree->bf) {
                     case self::LH: //左子树偏高，需要对左子树调节
                         //需要调节
+
                         return false;
                     case self::EH: //由等高变为左高有, 需要继续判断上层结点是否需要调节
                         $avlTree->bf = self::LH;
@@ -199,8 +200,28 @@ class BinarySortTree
 
                 }
             }
+        } else {
+
         }
     }
+
+    /**
+     * 調整左子樹
+     * author hxc
+     * @param $tree
+     */
+    public function leftBalance(&$tree)
+    {
+        $subTree = $tree->left;
+
+    }
+
+    public function rightBalance(&$tree)
+    {
+        $subTree = $tree->left;
+    }
+
+
 }
 
 $sortTree = new BinarySortTree();
@@ -217,7 +238,8 @@ $sortTree = new BinarySortTree();
 //$sortTree->front($sortTree->tree);
 //print_r($sortTree->getTree());
 
+$sortTree->insertAvlTree(4);
 $sortTree->insertAvlTree(3);
-$sortTree->insertAvlTree(2);
+$sortTree->insertAvlTree(1);
 var_dump($sortTree->getAvlTree());
 
