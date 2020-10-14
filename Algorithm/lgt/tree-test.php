@@ -189,7 +189,7 @@ class BinarySortTree
                 switch ($avlTree->bf) {
                     case self::LH: //左子树偏高，需要对左子树调节
                         //需要调节
-                        var_dump($avlTree->data);
+                        $this->leftBalance($avlTree);
                         return false;
                     case self::EH: //由等高变为左高有, 需要继续判断上层结点是否需要调节
                         $avlTree->bf = self::LH;
@@ -212,17 +212,39 @@ class BinarySortTree
      */
     public function rightRotate(&$tree)
     {
+
         //修改父节点与子树之间的指向时需要特别注意根节点
         $subTree = $tree->left;
         //修改父节点的指向
         if ($tree->parent) {
             $subTree->parent = $tree->parent;
+            $left = true;
+            if ($tree->parent->right == $tree) {
+                $left = false;
+            }
         } else {
             $subTree->parent = null;
         }
 
-        //交互结点位置
+        //交换结点位置
+        $tree->left = $subTree->right;
+        $tree->parent = $subTree;
+        $subTree->right = $tree;
 
+        $tree = $subTree;
+        //修改父节点对子树的指向
+        if (!$tree->parent) {
+            $this->root = $tree;
+        } else {
+            if ($left) {
+                $tree->parent->left = $tree;
+            } else {
+                $tree->parent->right = $tree;
+            }
+        }
+
+        var_dump($tree);
+        exit;
     }
 
     /**
