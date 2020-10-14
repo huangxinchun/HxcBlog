@@ -241,6 +241,7 @@ class BinarySortTree
             } else {
                 $tree->parent->right = $tree;
             }
+            
         }
 
         var_dump($tree);
