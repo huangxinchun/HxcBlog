@@ -212,12 +212,13 @@ class BinarySortTree
      */
     public function rightRotate(&$tree)
     {
-
+        var_dump($tree);
         //修改父节点与子树之间的指向时需要特别注意根节点
         $subTree = $tree->left;
         //修改父节点的指向
         if ($tree->parent) {
             $subTree->parent = $tree->parent;
+            //调整之前记录当前调整的子树是父节点的左子树还是右子树
             $left = true;
             if ($tree->parent->right == $tree) {
                 $left = false;
@@ -241,11 +242,8 @@ class BinarySortTree
             } else {
                 $tree->parent->right = $tree;
             }
-            
-        }
 
-        var_dump($tree);
-        exit;
+        }
     }
 
     /**
