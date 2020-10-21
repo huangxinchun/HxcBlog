@@ -244,6 +244,8 @@ class BinarySortTree
             }
 
         }
+        var_dump($tree);
+        exit;
     }
 
     /**
@@ -266,6 +268,8 @@ class BinarySortTree
     {
         $subTree = $tree->left;
     }
+
+
 }
 
 $sortTree = new BinarySortTree();
