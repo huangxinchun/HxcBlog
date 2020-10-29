@@ -243,8 +243,6 @@ class BinarySortTree
             }
 
         }
-        var_dump($tree);
-        exit;
     }
 
     /**
