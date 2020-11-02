@@ -14,7 +14,7 @@ book="2020-04-13-my-$now_book"
 #中间bak文件名
 book_bak="2020-04-13-my-bak-$now_book"
 
-hxc_path="../../huangxinchun.github.io/_posts"
+hxc_path="../../shenxiaozi007.github.io/_posts"
 #更新自己的分支
 echo "更新开始！"
 cp $now_book $hxc_path/$book
