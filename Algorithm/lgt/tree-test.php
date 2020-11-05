@@ -140,7 +140,6 @@ class BinarySortTree
         } else {                        //待删除结点只有一个右结点，把待删除结点的父结点的right指向待删除结点的子节点
             $fatherP->right = $child;
         }
-
     }
 
     //前序遍历节点
@@ -212,8 +211,6 @@ class BinarySortTree
      */
     public function rightRotate(&$tree)
     {
-        var_dump($tree);
-        exit;
         //修改父节点与子树之间的指向时需要特别注意根节点
         $subTree = $tree->left;
         //修改父节点的指向
