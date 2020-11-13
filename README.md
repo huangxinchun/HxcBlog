@@ -129,3 +129,8 @@
 - https://zhuanlan.zhihu.com/p/21935921
 
 ## 语言基础
+
+## 待整理
+- mysql - 数据存储页
+- go内存逃逸。堆栈的区别
+- tcp粘包拆包 [修改](https://www.cnblogs.com/jing99/p/11984966.html)
