@@ -260,6 +260,7 @@ class BinarySortTree
                 $tree->bf = $subTree->bf = self::EH;
                 $this->rightRotate($tree);
         }
+
     }
 
     public function rightBalance(&$tree)
