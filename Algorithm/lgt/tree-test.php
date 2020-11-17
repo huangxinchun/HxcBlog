@@ -234,6 +234,7 @@ class BinarySortTree
         //修改父节点对子树的指向
         if (!$tree->parent) {
             $this->root = $tree;
+
         } else {
             if ($left) {
                 $tree->parent->left = $tree;
