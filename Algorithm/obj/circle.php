@@ -56,6 +56,7 @@ class Circle
 $reflectionClass = new reflectionClass(Circle::class);
 var_dump($reflectionClass->getConstants());
 var_dump($reflectionClass);
+
 var_dump($reflectionClass->getProperties());
 
 exit;
