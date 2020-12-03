@@ -59,3 +59,4 @@ var_dump($reflectionClass);
 var_dump($reflectionClass->getProperties());
 
 exit;
+
